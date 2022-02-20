@@ -22,6 +22,8 @@ namespace ComicStore.Api
         {
             DependecyResolver.Resolve(services, Configuration);
             services.AddAutoMapper(typeof(Profiles));
+            services.AddCors();
+
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
@@ -41,6 +43,7 @@ namespace ComicStore.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ComicStore.Api v1"));
             }
 
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();
