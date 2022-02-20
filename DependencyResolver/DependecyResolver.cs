@@ -13,6 +13,7 @@ using ComicStore.Infrastructure.Repositories.Base;
 using ComicStore.Infrastructure.UniOfWork;
 using ComicStore.Application.Interface;
 using ComicStore.Application.Application;
+using ComicStore.Infrastructure.Repositories;
 
 namespace ComicStore.Api.DependencyResolver
 {
@@ -21,9 +22,10 @@ namespace ComicStore.Api.DependencyResolver
         public static void Resolve(IServiceCollection services, IConfiguration Configuration)
         {
             services.AddDbContext<ComicStoreDbContext>(options => options.UseOracle(Configuration.GetConnectionString("Production")));
-            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IShoppinngCartRepository, CartRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<IShoppinngCartService, ShoppingCartService>();
             services.AddScoped<IGenericRepository<CartItems>, GenericRepository<CartItems>>();
             services.AddScoped<ICartItemApplication, CartItemApplication>();
         }
