@@ -21,13 +21,24 @@ namespace ComicStore.Api.Controllers
             _logger = logger;
             _application = application;
         }
-
+        // GET: /cart
+        /// <summary>
+        /// Get All Carts
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("/cart")]
         public async Task<IActionResult> GetAll()
         {
             var carts = await _application.GetAllCarts();
             return Ok(carts);
         }
+
+        // POST: /cart
+        /// <summary>
+        /// Add one Cart
+        /// </summary>
+        /// <param name="CartItemRequest"></param>
+        /// <returns></returns>
 
         [HttpPost("/cart")]
         public async Task<IActionResult> AddCart([FromBody] CartItemRequest cart)
@@ -39,6 +50,12 @@ namespace ComicStore.Api.Controllers
             return Ok(response);
         }
 
+        // PUT: /cart
+        /// <summary>
+        /// Update one cart
+        /// </summary>
+        /// <param name="UpdateCartItemRequest"></param>
+        /// <returns></returns>
         [HttpPut("/cart")]
         public async Task<IActionResult> UpdateCartItem([FromBody] UpdateCartItemRequest cart)
         {
@@ -49,6 +66,12 @@ namespace ComicStore.Api.Controllers
             return Ok(response);
         }
 
+        // DELETE: /cart
+        /// <summary>
+        /// Remove one cart
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("/cart/{id}")]
         public async Task<IActionResult> Remove(int id)
         {
@@ -58,7 +81,13 @@ namespace ComicStore.Api.Controllers
 
             return Ok(response);
         }
-        
+
+        // GET: /order
+        /// <summary>
+        /// Get All Orders
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("/order")]
         public async Task<IActionResult> GetAllOrders()
         {
@@ -66,6 +95,12 @@ namespace ComicStore.Api.Controllers
             return Ok(orders);
         }
 
+        // POST: /order
+        /// <summary>
+        /// Add one Order
+        /// </summary>
+        /// <param name="OrderRequest"></param>
+        /// <returns></returns>
         [HttpPost("/order")]
         public async Task<IActionResult> AddOrder([FromBody] OrderRequest order)
         {
