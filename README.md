@@ -2,4 +2,4 @@
 
 Stack do projeto
 
-.Net 5 com entity framework Core e Banco de dados Oracle
+.Net 5 com entity framework core e Banco de dados Oracle
