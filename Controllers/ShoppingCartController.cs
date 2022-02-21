@@ -40,9 +40,9 @@ namespace ComicStore.Api.Controllers
         }
 
         [HttpPut("/cart")]
-        public async Task<IActionResult> UpdateCartItem([FromBody] UpdateCartItemRequest order)
+        public async Task<IActionResult> UpdateCartItem([FromBody] UpdateCartItemRequest cart)
         {
-            var response = await _application.UpdateCart(order);
+            var response = await _application.UpdateCart(cart);
             if (response.ValidationErrors.Any())
                 return UnprocessableEntity(response.ValidationErrors);
 
