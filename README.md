@@ -7,7 +7,9 @@ Stack do projeto
 ## Iniciando
 
 1. Faça o clone do projeto
-
+```
+https://github.com/visued/ComicStore.Api.git
+```
 2. Instale o docker 
 [Começando com Docker](https://www.docker.com/get-started)
 
