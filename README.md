@@ -26,12 +26,18 @@ docker ps
 
 6. Esse projeto depende de uma instancia de container do oraclexe, você pode encontrar instruções de instalação no repositório [Subindo uma instância de Oracle](https://github.com/oracle/docker-images/tree/main/OracleDatabase)
 
-7. Execute as migrações do Entity Framework e update para criação das tabelas, navegue até o diretório do projeto ComicStore.Infrastructure e execute
+7. Certifique-se que possua o sdk do .net core instalado, caso não possua o mesmo pode ser baixado aqui [Download SDK 5.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-5.0.405-windows-x64-installer) 
+
+8. Instale o dotnet-ef globalmente executando o comando
+```
+ dotnet tool install --global dotnet-ef
+```
+9. Execute as migrações do Entity Framework e update para criação das tabelas, navegue até o diretório do projeto ComicStore.Infrastructure e execute
 ```
 dotnet ef migrations add FirstMigration -p ComicStore.Infrastructure.csproj -s ..\ComicStore.Api\ComicStore.Api.csproj
 ```
 
-8. Persistindo o update no banco de dados Oracle
+10. Persistindo o update no banco de dados Oracle
 ```
 dotnet ef database update -p ComicStore.Infrastructure.csproj -s ..\ComicStore.Api\ComicStore.Api.csproj
 ```
