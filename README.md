@@ -1,4 +1,4 @@
-# ComicStore.Api
+# Backend Comic Store
 Backend do projeto de carrinho de quadrinhos da Marvel.
 
 Stack do projeto
