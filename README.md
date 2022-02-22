@@ -42,4 +42,4 @@ dotnet ef migrations add FirstMigration -p ComicStore.Infrastructure.csproj -s .
 dotnet ef database update -p ComicStore.Infrastructure.csproj -s ..\ComicStore.Api\ComicStore.Api.csproj
 ```
 
-11. Acesse a url http://localhost:5001/swagger para consultar a documentação da API.
+11. No browser de sua preferência, acesse a url http://localhost:5001/swagger para consultar a documentação da API.
